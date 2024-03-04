@@ -1,0 +1,16 @@
+<div class="py-2 flex justify-between items-center gap-14 fade-in">
+
+    <p *ngIf="workout.id === -1" class="py-1 flex-1 block text-xl break-words min-w-[10%]">{{workout.name}}</p>
+    <a *ngIf="workout.id !== -1" class="py-1 flex-1 block text-xl break-words min-w-[10%] hover:text-myPurple color-trans-lin" routerLink="/workouts/{{workout.id}}" >{{workout.name}}</a>
+    
+
+    <div class="flex items-center gap-2">
+        <p class="text-myGray">{{dateString}}</p>
+
+        <button class="px-0.5 py-2 group" (click)="emitDeleteWorkoutIdEvent(workout.id)" [disabled]="workout.id === -1" >
+            <svg class="group-hover:stroke-myRed stroke-myGray color-trans-out" xmlns="http://www.w3.org/2000/svg" width="22" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M5 12h14"/></svg>
+        </button>
+    </div>
+</div>
+
+

@@ -1,0 +1,30 @@
+<div *ngIf="authService.getIsAuth()"  >
+    <app-header-bar></app-header-bar>
+
+    <div class="" *ngIf="errorMessage === ''">
+
+        <button class="mx-4 mt-8 fade-in-slow" (click)="createWorkout()">
+            <svg class="stroke-myGray hover:stroke-myGreen color-trans-out" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </button>
+        
+    
+        <app-workout-list
+        (deleteWorkoutIdEvent)="deleteWorkout($event)"
+        [workoutList]="workoutList"></app-workout-list>
+
+    </div>
+
+    <p class="text-myRed text-lg fade-in-slow px-5 pt-10" *ngIf="errorMessage !== ''">
+        {{errorMessage}}
+    </p>
+
+
+</div>
+
+
+
+
+<div *ngIf="!authService.getIsAuth()" class="late-appear pt-20 pl-16 text-xl text-myRed">
+    <p>You failed to connect, please reload</p>
+</div>
+

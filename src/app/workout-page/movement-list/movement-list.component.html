@@ -1,0 +1,23 @@
+<div class=" mt-8">
+
+    <app-movement-li *ngFor="let movement of movementList" 
+    [movement]="movement"
+    (deleteMovementIdEvent)="deleteMovement($event)"
+    
+    ></app-movement-li>
+    
+    <div class="pl-0.5 mt-12 flex gap-6">
+        <button (click)="createMovement()" class="fade-in-slow" [disabled]="movementList.length >= 20">
+            <svg [class.hover:stroke-myGreen]="movementList.length < 20" class=" stroke-myGray color-trans-out " xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/></svg>
+        </button>
+        
+        <button (click)="emitToggleNotesEvent()" class="fade-in-slow">
+            <svg class="hover:stroke-myCyan stroke-myGray color-trans-out" *ngIf="notesActive" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M8 21h12a2 2 0 0 0 2-2v-2H10v2a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v3h4"/><path d="M19 17V5a2 2 0 0 0-2-2H4"/></svg>
+            <svg class="hover:stroke-myCyan stroke-myGray color-trans-out" *ngIf="!notesActive" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h12a2 2 0 0 0 2-2v-2H10v2a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v3h4"/><path d="M19 17V5a2 2 0 0 0-2-2H4"/><path d="M15 8h-5"/><path d="M15 12h-5"/></svg>
+        </button>
+
+
+    </div>
+
+    
+</div>

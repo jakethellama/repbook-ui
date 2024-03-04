@@ -1,0 +1,99 @@
+@tailwind base;
+
+@layer base {
+    :root {
+        /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
+        font-family: Inter, "Mabry Pro", sans-serif;
+        @apply bg-myBgPrimary;
+        line-height: 1.5;
+        font-weight: 400;
+        
+        /* background: #fffffe; */
+        /* background: rgb(201,201,255); */
+        /* background: radial-gradient(circle 600px at 90% 10%, rgba(201,201,255,0.9878326330532213) 0%, rgba(255,255,255,1) 100%); */
+        
+        font-synthesis: none;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-text-size-adjust: 100%;
+    }
+    input::placeholder {
+        @apply text-myGray;
+    }
+    input, textarea {
+        @apply bg-myBgPrimary
+    }
+    body {
+        margin: 0;
+        min-width: 320px; 
+        min-height: 100vh;
+    }
+    #app-root-container{
+        max-width: 1260px;
+        min-height: 100vh;
+        margin: 0 auto;
+    }
+
+    @keyframes fade-in {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes late-appear {
+        0% {
+            opacity: 0;
+        }
+        99% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+}   
+
+@tailwind components;
+
+@layer components {
+    .fade-in {
+        animation: fade-in 0.43s;
+    }
+    .fade-in-fast {
+        animation: fade-in 0.18s;
+    }
+    .fade-in-slow {
+        animation: fade-in 0.86s;
+    }
+    .late-appear{
+        animation: late-appear 5s;
+    }
+    
+
+    .color-trans-lin {
+        @apply motion-safe:transition-colors motion-safe:ease-linear duration-100
+    }
+    .color-trans-out {
+        @apply motion-safe:transition-colors motion-safe:ease-out
+    }
+    .all-trans-lin {
+        @apply motion-safe:transition-all motion-safe:ease-linear duration-100
+    }
+    .all-trans-out {
+        @apply motion-safe:transition-all motion-safe:ease-out
+    }
+
+
+    .login-input {
+        @apply w-[68vw] rounded-xm outline-0 focus:text-myBlue;
+    }
+
+}
+
+@tailwind utilities;

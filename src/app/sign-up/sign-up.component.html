@@ -1,0 +1,35 @@
+<div class="pl-10 pt-28 s5p:pl-16 s5p:pt-28 fade-in-slow mt-[0.25rem]">
+
+    <form autocomplete="off" [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="text-2xl min-h-[71vh]">
+    
+        <div class="flex items-center group">
+            <svg class="mt-[5px] group-hover:stroke-myBlue stroke-black color-trans-lin" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            <input id="username" type="text" formControlName="username"
+            class="ml-1.5 p-1 pb-0 login-input color-trans-lin" placeholder="username"
+            >
+        </div>
+        
+
+        <div class="flex items-center mt-1 group">
+            <svg class="ml-[1px] group-hover:stroke-myBlue stroke-black color-trans-lin" width="23px" height="24px" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" ><path d="M14 12C14 14.2091 15.7909 16 18 16C20.2091 16 22 14.2091 22 12C22 9.79086 20.2091 8 18 8C15.7909 8 14 9.79086 14 12ZM14 12H2V15"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M6 12V15"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            <input id="password"  formControlName="password"
+            class="ml-1.5 p-1 pt-0 login-input color-trans-lin" placeholder="password"  type="password"
+            >
+        </div>
+    
+    
+        <p class="text-sm text-myRed mt-1.5" [class.hidden]="!showErrorMessage" >{{ usernameErrorMessage + passwordErrorMessage + submitErrorMessage}}</p>
+
+        <button type="submit" class="invisible"></button>
+    </form>
+
+    <a routerLink="/" class="p-1 text-lg hover:text-myPurple color-trans-lin">home</a>
+    
+    <a routerLink="/login" class="ml-6 p-1 text-lg hover:text-myPurple color-trans-lin">login</a>
+    
+    
+
+
+
+</div>
+

@@ -1,0 +1,64 @@
+<div *ngIf="authService.getIsAuth()" >
+    <app-header-bar></app-header-bar>
+
+    <div class="px-5 pt-6" *ngIf="errorMessage === ''">
+        
+        <div class="flex justify-between items-start">
+            <app-editable-text 
+            [servicePatchFunction]="workoutService.patchWorkoutByID.bind(workoutService)"
+            [htmlId]="'workout-' + id + '-name'"     
+            [entityId]="id"
+            [maxLength]="40"
+            [initValue]="initName"
+            fieldName="name"
+            class="flex-1"
+            classStyles="box-content ml-[-0.5rem] mt-[-0.56rem] p-2 w-[74%] s5p:w-[83%] text-4xl hover:text-myBlue focus:text-myBlue color-trans-lin fade-in-slow"
+            ></app-editable-text>
+
+            <p class="fade-in-slow w-[6.875rem] text-right text-myGray">{{date}}</p>
+        </div>
+        
+    
+        <app-movement-list 
+            [workout_id]="id"
+            [movementList]="movementList"
+            [notesActive]="showNotes"
+            (updateMovementListEvent)="setMovementList($event)"
+            (toggleNotesEvent)="toggleNotes()"
+        ></app-movement-list>
+
+
+
+
+        <div [class.hidden]="!showNotes"  class="pt-3 pl-[3px]">
+            <app-editable-text 
+            [servicePatchFunction]="workoutService.patchWorkoutByID.bind(workoutService)"
+            [htmlId]="'workout-' + id + '-notes'"     
+            [entityId]="id"
+            [maxLength]="200"
+            [initValue]="initNotes"
+            fieldName="notes"
+            placeHolder="notes"
+            class=" block"
+            classStyles="box-content p-2 ml-[-0.5rem] mt-[-0.5rem] w-full fade-in hover:text-myBlue focus:text-myBlue color-trans-lin"
+            ></app-editable-text>
+        </div>
+
+
+    </div>
+
+    <p class="text-myRed text-lg px-5 pt-10 fade-in" *ngIf="errorMessage !== ''">
+        {{errorMessage}}
+    </p>
+
+
+    
+
+</div>
+
+
+
+
+<div *ngIf="!authService.getIsAuth()" class="late-appear pt-20 pl-16 text-xl text-myRed">
+    <p>You failed to connect, please reload</p>
+</div>

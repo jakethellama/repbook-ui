@@ -1,0 +1,80 @@
+
+<div class="flex pb-1 pl-5 pr-4 items-center justify-between fade-in-slow text-base">
+
+    <div class="flex items-center ">
+        <app-editable-num
+        [servicePatchFunction]="ssetService.patchSsetNumberByID.bind(ssetService)"
+        [htmlId]="'sset-' + sset.id + '-weight'"     
+        [entityId]="sset.id"
+        [maxValue]="9999"
+        [initValue]="sset.weight"
+        [isFailable]="false"
+        [isDoubleZero]="false"
+        fieldName="weight"
+        class=""
+        classStyles="max-w-16 px-1.5 py-1.5 focus:text-myBlue hover:text-myBlue hover:placeholder-myBlue color-trans-lin"
+        ></app-editable-num>
+
+        <svg class="stroke-black" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+
+        <app-editable-num
+            [servicePatchFunction]="ssetService.patchSsetNumberByID.bind(ssetService)"
+            [htmlId]="'sset-' + sset.id + '-reps'"     
+            [entityId]="sset.id"
+            [maxValue]="999"
+            [initValue]="sset.reps"
+            [isFailable]="true"
+            [isDoubleZero]="false"
+            fieldName="reps"
+            class=""
+            classStyles="max-w-16 px-1.5 py-1.5 focus:text-myBlue hover:text-myBlue hover:placeholder-myBlue color-trans-lin"
+        ></app-editable-num>
+
+
+    </div>
+
+    <div class="flex items-center">
+        <app-editable-num
+        [servicePatchFunction]="ssetService.patchSsetNumberByID.bind(ssetService)"
+        [htmlId]="'sset-' + sset.id + '-mm'"     
+        [entityId]="sset.id"
+        [maxValue]="99"
+        [initValue]="sset.mm"
+        [isFailable]="false"
+        [isDoubleZero]="true"
+        fieldName="mm"
+        class=""
+        classStyles="max-w-10 pl-2.5 pr-0.5 py-1.5 focus:text-myBlue hover:text-myBlue hover:placeholder-myBlue color-trans-lin"
+        ></app-editable-num>
+        
+        <p class="mt-[-1px]">:</p>
+
+        <app-editable-num
+            [servicePatchFunction]="ssetService.patchSsetNumberByID.bind(ssetService)"
+            [htmlId]="'sset-' + sset.id + '-ss'"     
+            [entityId]="sset.id"
+            [maxValue]="59"
+            [initValue]="sset.ss"
+            [isFailable]="false"
+            [isDoubleZero]="true"
+            fieldName="ss"
+            class=""
+            classStyles="max-w-10 pl-0.5 pr-2.5 py-1.5 focus:text-myBlue hover:text-myBlue hover:placeholder-myBlue color-trans-lin"
+        ></app-editable-num>
+
+        <button (click)="emitDeleteSsetIdEvent()" class="ml-6">
+            <svg class="hover:stroke-myRed stroke-myGray color-trans-out" xmlns="http://www.w3.org/2000/svg" width="19" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg>
+        </button>
+
+
+
+    </div>
+
+
+</div>
+
+
+
+
+
+

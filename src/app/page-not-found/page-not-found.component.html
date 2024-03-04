@@ -1,0 +1,6 @@
+
+
+<h1 class="text-5xl text-center ml-10 mt-28 s5p:ml-14 s5p:mt-28 fade-in-slow inline-block text-myRed">404</h1>
+
+<a *ngIf="authService.getIsAuth()" routerLink="/home" class="inline text-2xl ml-9 mt-14 py-2  text-center hover:text-myPurple fade-in-slow color-trans-lin">home</a>
+<a *ngIf="!authService.getIsAuth()" routerLink="/" class="text-2xl ml-8 mt-14 py-2  text-center hover:text-myPurple fade-in-slow color-trans-lin">home</a>

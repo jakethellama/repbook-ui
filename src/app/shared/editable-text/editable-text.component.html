@@ -1,0 +1,11 @@
+
+
+<textarea id="{{htmlId}}" type="text" [formControl]="valueControl" #thisInput
+    cdkTextareaAutosize
+    (focusout)="onFocusOut()" 
+    [placeholder]="placeHolder"
+    (keydown.enter)="onEnter($event); thisInput.blur()"
+    class="focus:outline-none + {{classStyles}}"></textarea>
+
+
+

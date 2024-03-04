@@ -1,0 +1,9 @@
+
+<input id="{{htmlId}}" type="text" [formControl]="valueControl" #thisInput
+    autocomplete="off"
+    (focusout)="onFocusOut()"
+    (keydown.enter)="thisInput.blur()"
+    autoSizeInput
+    placeholder="-"
+
+    class="focus:outline-none + {{classStyles}}">

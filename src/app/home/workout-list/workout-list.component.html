@@ -1,0 +1,9 @@
+<div class="pl-5 pr-4 mt-0">
+
+    <app-workout-li *ngFor="let workout of workoutList"
+    [workout]="workout"
+    (deleteWorkoutIdEvent)="emitDeleteWorkoutIdEvent($event)"></app-workout-li>
+</div>
+
+
+
