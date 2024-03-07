@@ -96,8 +96,6 @@ export class WorkoutPageComponent implements OnInit {
 
         const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
-        // iso = '2024-09-23';
-
         const mm = iso.substring(5, 7);
         let dd = iso.substring(8, 10);
 

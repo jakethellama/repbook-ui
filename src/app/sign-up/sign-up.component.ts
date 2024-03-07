@@ -111,7 +111,6 @@ export class SignUpComponent implements OnInit, OnDestroy {
         } else {
             this.authService.signup(this.usernameControl.value ?? '', this.passwordControl.value ?? '').subscribe(
                 (status) => {
-                    console.log(status);
                     if (status === 'success') {
                         this.router.navigate(['/home']);
                     } else {

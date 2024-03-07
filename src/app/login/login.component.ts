@@ -111,7 +111,6 @@ export class LoginComponent implements OnInit, OnDestroy {
         } else {
             this.authService.login(this.usernameControl.value ?? '', this.passwordControl.value ?? '').subscribe(
                 (status) => {
-                    console.log(status);
                     if (status === 'success') {
                         this.router.navigate(['/home']);
                     } else {

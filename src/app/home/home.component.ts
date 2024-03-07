@@ -50,7 +50,7 @@ export class HomeComponent implements OnInit {
 
     fetchWorkouts() {
         this.workoutService.fetchWorkouts().subscribe(
-            (res) => { this.workoutList = res.workoutList; this.errorMessage = res.errorMessage; console.log(res.workoutList); },
+            (res) => { this.workoutList = res.workoutList; this.errorMessage = res.errorMessage; },
         );
     }
 

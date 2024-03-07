@@ -6,9 +6,8 @@ export default {
     theme: {
         extend: {
             screens: {
-                // phone is 390
                 s4p: '400px',
-                s5p: '500px', // use this one
+                s5p: '500px',
                 s6p: '600px',
                 s7p: '700px',
                 s8p: '800px',

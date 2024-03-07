@@ -1,6 +1,4 @@
 <div class="pb-4">
-    <!-- <svg class="group-hover:stroke-myRed stroke-myGray color-trans-out" xmlns="http://www.w3.org/2000/svg" width="19" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M5 12h14"/></svg>         -->
-
     <div class="flex items-center fade-in-slow">
         <app-editable-text
             [servicePatchFunction]="movementService.patchMovementStringByID.bind(movementService)"
@@ -38,35 +36,4 @@
         </button>
     </div>
 
-    
-
-
-    <!-- <app-editable-text
-            [servicePatchFunction]="movementService.patchMovementStringByID.bind(movementService)"
-            [htmlId]="'movement-' + movement.id + '-notes'"     
-            [entityId]="movement.id"
-            [maxLength]="120"
-            [initValue]="movement.notes"
-            fieldName="notes"
-            classStyles="mt-4 bg-yellow-300"
-    
-    ></app-editable-text> -->
-
-    <!-- <app-editable-num
-        [servicePatchFunction]="movementService.patchMovementNumberByID.bind(movementService)"
-        [htmlId]="'movement-' + movement.id + '-restAfter'"     
-        [entityId]="movement.id"
-        [maxValue]="9999"
-        [initValue]="movement.restAfter"
-        [isFailable]="false"
-        fieldName="restAfter"
-        classStyles="mt-4 bg-red-300"
-    ></app-editable-num> -->
-
-    
-    
-    
-
-
-    
 </div>

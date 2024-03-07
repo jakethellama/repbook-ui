@@ -6,10 +6,8 @@ import {
     FormControl, FormsModule, ReactiveFormsModule, FormGroup,
 } from '@angular/forms';
 import { Observable, Subscription } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { TextFieldModule } from '@angular/cdk/text-field';
 import { AutoSizeInputModule } from 'ngx-autosize-input';
-import { WorkoutService } from '../workout.service';
 
 @Component({
     selector: 'app-editable-num',
@@ -23,7 +21,7 @@ import { WorkoutService } from '../workout.service';
     ],
     templateUrl: './editable-num.component.html',
 })
-export class EditableNumComponent {
+export class EditableNumComponent implements OnInit {
     @Input() servicePatchFunction!: (value: number, entityId: number, fieldName: string) => Observable<number>;
     @Input() htmlId!: string;
     @Input() entityId!: number; // id of the entity this value is a field of
@@ -56,28 +54,13 @@ export class EditableNumComponent {
             this.initValueH = `0${this.initValueH}`;
             this.valueControl.setValue(this.initValueH);
         }
-
-        // this.subValueControl = this.valueControl.valueChanges.subscribe(
-        //     (newValue) => {
-
-        //     },
-        // );
     }
 
-    // ngOnDestroy(): void {
-    //     this.subValueControl?.unsubscribe();
-    // }
-
     onFocusOut(): void {
-        // blur in template naturally calls this
         this.patchVal(this.valueControl.value ?? '');
     }
 
     patchVal(newValue: string): void {
-        console.log(`patching ${this.fieldName}`);
-
-        console.log(this.isDoubleZero);
-
         let cleanValue = 0;
 
         if (this.isFailable && (newValue === 'failure' || newValue === 'Failure')) {

@@ -10,7 +10,7 @@ import { MessageRes } from './interfaces/message-res';
     providedIn: 'root',
 })
 export class AuthService {
-    private url = 'http://localhost:3000/api';
+    private url = 'https://repbook.app/api';
     private httpOptions = {
         headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
         withCredentials: true,
@@ -36,12 +36,10 @@ export class AuthService {
                 map((messageRes: MessageRes) => 'success'),
                 tap(() => { this.isAuth = true; this.username = username; }),
                 catchError((err) => {
-                    console.log(err);
-                    console.log(err.status);
                     if (err.status === 401 || err.status === 400) {
                         return of('Incorrect login');
                     }
-                    if (err.status === 0) {
+                    if (err.status === 0 || err.status === 503) {
                         return of('My servers are off, please try again later');
                     }
                     return of('Something went wrong, please try again');
@@ -59,7 +57,7 @@ export class AuthService {
                     if (err.status === 409 || err.status === 400) {
                         return of('Username is taken');
                     }
-                    if (err.status === 0) {
+                    if (err.status === 0 || err.status === 503) {
                         return of('My servers are off, please try again later');
                     }
                     return of('Something went wrong, please try again');

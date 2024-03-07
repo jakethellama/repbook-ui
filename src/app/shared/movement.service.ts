@@ -12,7 +12,7 @@ import { Movement } from './interfaces/movement';
     providedIn: 'root',
 })
 export class MovementService {
-    private url = 'http://localhost:3000/api';
+    private url = 'https://repbook.app/api';
     private httpOptions = {
         headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
         withCredentials: true,

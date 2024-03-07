@@ -62,22 +62,14 @@ export class EditableTextComponent implements OnInit, OnDestroy {
     }
 
     onFocusOut(): void {
-        // this.isReadOnly = true;
-        // blur in template naturally calls this
         this.patchVal(this.valueControl.value ?? '');
     }
 
     patchVal(newValue: string): void {
-        console.log(`patching ${this.fieldName}`);
         this.servicePatchFunction(newValue, this.entityId, this.fieldName).subscribe(
             (updatedValue) => {
                 this.valueControl.setValue(updatedValue);
             },
         );
     }
-
-    // isReadOnly = true;
-    // onDblClick() {
-    //     this.isReadOnly = false;
-    // }
 }
